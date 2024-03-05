@@ -77,6 +77,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public Map<String, ?> findUsersByNameFromMap(String name) {
+
         return users
                 .entrySet()
                 .stream()
@@ -87,7 +88,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public List<?> findUsersByJob(String job) {
-
+        System.out.println("findUsersByJob 파라미터 : "+job);
+        users
+                .values()
+                .stream().forEach(i->System.out.println("직업 :"+i.getJob()));
         return users
                 .values()
                 .stream()
