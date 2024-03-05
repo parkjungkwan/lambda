@@ -6,6 +6,7 @@ import lombok.*;
 @Getter
 @ToString(exclude = {"id"})
 public class User {
+    private Long id;
     private String username;
     private String password;
     private String name;
@@ -34,5 +35,18 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{\n" +
+                "username='" + username + '\n' +
+                ", password='" + password + '\n' +
+                ", name='" + name + '\n' +
+                ", ssn='" + ssn + '\n' +
+                ", phoneNumber='" + phoneNumber + '\n' +
+                ", address='" + address + '\n' +
+                ", job='" + job + '\n' +
+                '}';
     }
 }

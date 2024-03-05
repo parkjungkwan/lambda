@@ -6,6 +6,7 @@ import common.UtilServiceImpl;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class UserServiceImpl extends AbstractService<User> implements UserService {
 
@@ -37,7 +38,11 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public Optional<User> findById(Long id) {
-        return Optional.of(users.get(id));
+        return Optional.of(users
+                .values()
+                .stream()
+                .filter(i -> i.getId().equals(id))
+                .collect(Collectors.toList()).get(0));
     }
 
     @Override
@@ -85,7 +90,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         return users
                 .values()
                 .stream()
-                .filter(i -> i.getName().equals(job))
+                .filter(i -> i.getJob().equals(job))
                 .collect(Collectors.toList());
     }
 
@@ -106,7 +111,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public Optional<User> getOne(String id) {
-        return Optional.empty();
+        return Optional.of(users.get(id));
     }
 
     @Override
@@ -116,19 +121,14 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public String addUsers() {
-        Map<String, User> map = new HashMap<>();
-        UtilService util = UtilServiceImpl.getInstance();
-
-        for(int i=0; i<5; i++){
-            String username = util.createRandomUsername();
-            map.put(username,
-                    User.builder()
-                            .username(username)
-                            .password("1")
-                            .name(util.createRandomName())
-                            .build());
-        }
-        users = map;
+        IntStream.range(0,5)
+                .mapToObj(i -> UtilServiceImpl.getInstance().createRandomUsername())
+                .forEach(i -> users.put(i, User.builder()
+                        .username(i)
+                        .password("1")
+                        .name(UtilServiceImpl.getInstance().createRandomName())
+                        .job(UtilServiceImpl.getInstance().createRandomJob())
+                        .build()));
         return users.size()+"개 더미값 추가";
 
     }
