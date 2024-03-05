@@ -37,7 +37,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public Optional<User> findById(Long id) {
-        Optional<User> u = Optional.of(users.get(id));
         return Optional.of(users.get(id));
     }
 
