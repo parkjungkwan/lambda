@@ -2,6 +2,7 @@ package account;
 
 
 import common.AbstractService;
+import enums.Messenger;
 import user.User;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class AccountServiceImpl  extends AbstractService<Account> implements Acc
     }
 
     @Override
-    public String save(Account account) {
+    public Messenger save(Account account) {
         return null;
     }
 

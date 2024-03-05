@@ -3,6 +3,7 @@ package user;
 import common.AbstractService;
 import common.UtilService;
 import common.UtilServiceImpl;
+import enums.Messenger;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,9 +19,9 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
     public static UserServiceImpl getInstance(){return instance;}
     @Override
-    public String save(User user) {
+    public Messenger save(User user) {
         users.put(user.getUsername(), user);
-        return "회원가입 성공";
+        return Messenger.SUCCESS;
     }
 
     @Override

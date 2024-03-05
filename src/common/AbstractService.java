@@ -1,10 +1,12 @@
 package common;
 
+import enums.Messenger;
+
 import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractService<T> {
-    public abstract String save(T t);
+    public abstract Messenger save(T t);
     public abstract List<T> findAll();
     public abstract Optional<T> findById(Long id);
     public abstract String count();
