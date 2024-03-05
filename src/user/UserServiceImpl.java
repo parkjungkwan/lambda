@@ -1,15 +1,13 @@
 package user;
 
+import common.AbstractService;
 import common.UtilService;
 import common.UtilServiceImpl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends AbstractService<User> implements UserService {
 
     private static UserServiceImpl instance = new UserServiceImpl();
     Map<String, User> users;
@@ -19,9 +17,14 @@ public class UserServiceImpl implements UserService {
     }
     public static UserServiceImpl getInstance(){return instance;}
     @Override
-    public String join(User user) {
+    public String save(User user) {
         users.put(user.getUsername(), user);
         return "회원가입 성공";
+    }
+
+    @Override
+    public List<User> findAll() {
+        return  new ArrayList<>(users.values());
     }
 
     @Override
@@ -33,9 +36,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(String username) {
-        return users.get(username)
-                ;
+    public Optional<User> findById(Long id) {
+        Optional<User> u = Optional.of(users.get(id));
+        return Optional.of(users.get(id));
     }
 
     @Override
@@ -46,15 +49,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String deleteUser(String username) {
-        users.remove(username);
+    public String delete(User user) {
+        users.remove(user.getUsername());
         return "회원삭제";
     }
 
     @Override
-    public List<?> getUserList() {
-        return  new ArrayList<>(users.values());
+    public Boolean existsById(Long id) {
+        return users.containsKey(id);
     }
+
+
 
     @Override
     public List<?> findUsersByName(String name) {
@@ -78,17 +83,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<?> findUsersByJob(String job) {
 
-        return null;
+        return users
+                .values()
+                .stream()
+                .filter(i -> i.getName().equals(job))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Map<String, ?> findUsersByJobFromMap(String job) {
-        return null;
+        return users
+                .entrySet()
+                .stream()
+                .filter(i -> i.getKey().equals(job))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+                ;
     }
 
     @Override
-    public String countUsers() {
+    public String count() {
         return users.size()+"";
+    }
+
+    @Override
+    public Optional<User> getOne(String id) {
+        return Optional.empty();
     }
 
     @Override

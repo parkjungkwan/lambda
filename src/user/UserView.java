@@ -23,6 +23,7 @@ public class UserView {
                     System.out.println("종료");return;
                 case "1":
                     System.out.println("1-회원가입");
+
                     break;
                 case "2":
                     System.out.println("2-로그인");

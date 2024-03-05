@@ -50,7 +50,7 @@ public class AccountServiceImpl  extends AbstractService<Account> implements Acc
     }
 
     @Override
-    public Long count() {
+    public String count() {
         return null;
     }
 
@@ -61,11 +61,6 @@ public class AccountServiceImpl  extends AbstractService<Account> implements Acc
 
     @Override
     public String delete(Account account) {
-        return null;
-    }
-
-    @Override
-    public String deleteAll() {
         return null;
     }
 
