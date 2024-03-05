@@ -48,7 +48,7 @@ public class AccountController {
         return accountService.getBalance(sc.next());
     }
 
-    public String deleteAccount(Scanner sc) {
+    public String delete(Scanner sc) {
         return accountService.delete(Account.builder().accountNumber(sc.next()).build());
     }
 

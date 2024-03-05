@@ -2,10 +2,10 @@ package user;
 
 public class UserController {
 
-    UserService userService;
+    UserServiceImpl userService;
 
     public UserController() {
-        this.userService = new UserServiceImpl();
+        this.userService = UserServiceImpl.getInstance();
     }
 
     public String addUsers() {

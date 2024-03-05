@@ -8,10 +8,10 @@ import java.util.Date;
 @Getter
 @ToString(exclude = {"id"})
 public class Account {
-    private long id;
+    private Long id;
     private String accountNumber;
     private String accountHolder;
-    private double balance;
+    private Double balance;
     private Date transactionDate;
 
     @Builder(builderMethodName = "builder")
