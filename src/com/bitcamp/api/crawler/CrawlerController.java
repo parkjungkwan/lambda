@@ -1,0 +1,11 @@
+package com.bitcamp.api.crawler;
+
+import java.util.Map;
+import java.util.Scanner;
+
+public class CrawlerController {
+    public Map<String,?> findBugsMusic(Scanner scanner) {
+
+        return null;
+    }
+}
