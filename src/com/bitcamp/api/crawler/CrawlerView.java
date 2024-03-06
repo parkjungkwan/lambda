@@ -1,10 +1,11 @@
 package com.bitcamp.api.crawler;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
 public class CrawlerView {
-    public static void main(Scanner scanner) {
+    public static void main(Scanner scanner) throws IOException {
         CrawlerController controller = new CrawlerController();
         while(true){
             System.out.println("[사용자메뉴] 0-종료\n " +

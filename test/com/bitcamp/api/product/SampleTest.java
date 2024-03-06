@@ -7,5 +7,6 @@ public class SampleTest {
 
 @Test
 public void systemOut() {
+
     }
 }
