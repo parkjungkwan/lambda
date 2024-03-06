@@ -1,6 +1,9 @@
 package com.bitcamp.api.crawler;
 
+import org.jsoup.nodes.Element;
+
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -24,7 +27,14 @@ public class CrawlerView {
                 case "1":
                     System.out.println("1-벅스뮤직");
                     Map<String, ?> map = controller.findBugsMusic(scanner);
+                    Iterator<Element> rank = (Iterator<Element>) map.get("rank");
+                    Iterator<Element> artist = (Iterator<Element>) map.get("artist");
+                    Iterator<Element> title = (Iterator<Element>) map.get("title");
+
                     System.out.println("벅스뮤직 결과 : ");
+                    while(rank.hasNext()){
+                        System.out.println(rank.next().text() + "위 " + artist.next().text() + " - " + title.next().text());
+                    }
                     break;
                 case "2":
                     System.out.println("2-로그인");

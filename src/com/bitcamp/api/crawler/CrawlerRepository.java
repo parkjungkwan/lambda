@@ -26,9 +26,11 @@ public class CrawlerRepository extends AbstractRepository {
         Iterator<Element> title = elems.select("p.title").iterator();
         Iterator<Element> artist = elems.select("p.artist").iterator();
         Iterator<Element> rank = elems.select("strong").iterator();
-        while(rank.hasNext()){
-            System.out.println(rank.next().text() + "위 " + artist.next().text() + " - " + title.next().text());
-        }
-        return null;
+        Map<String, Iterator<Element>> localMap = new HashMap<>();
+        localMap.put("title", title);
+        localMap.put("artist", artist);
+        localMap.put("rank", rank);
+        map = localMap;
+        return map;
     }
 }
