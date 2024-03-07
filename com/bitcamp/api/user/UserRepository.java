@@ -38,12 +38,11 @@ public class UserRepository {
         ResultSet rs = pstmt.executeQuery();
         if(rs.next()){
             do{
-                System.out.println("-- inner ---");
                 System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
                         rs.getInt("id"),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4));
+                        rs.getString("title"),
+                        rs.getString("content"),
+                        rs.getString("writer"));
                 System.out.println();
             }while(rs.next());
 
