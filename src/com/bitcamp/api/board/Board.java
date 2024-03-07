@@ -1,5 +1,6 @@
 package com.bitcamp.api.board;
 
+
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
