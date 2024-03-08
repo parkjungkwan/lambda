@@ -21,9 +21,7 @@ public class UserController {
     public String save(Scanner scanner) {
         service.save(User.builder()
                         .username(scanner.next())
-                        .ssn(scanner.next())
-                        .address(scanner.next())
-                        .phoneNumber(scanner.next())
+                        .phone(scanner.next())
                         .password(scanner.next())
                 .build());
         return "회원가입 성공";
@@ -47,9 +45,7 @@ public class UserController {
     public String updatePassword(Scanner scanner) {
         return service.updatePassword(User.builder()
                 .username(scanner.next())
-                .ssn(scanner.next())
-                .address(scanner.next())
-                .phoneNumber(scanner.next())
+                .phone(scanner.next())
                 .password(scanner.next())
                 .build());
     }
