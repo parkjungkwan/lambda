@@ -138,6 +138,11 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
     @Override
+    public Messenger createUsers() throws SQLException {
+        return repo.createUsers();
+    }
+
+    @Override
     public String addUsers() {
         IntStream.range(0,5)
                 .mapToObj(i -> UtilServiceImpl.getInstance().createRandomUsername())

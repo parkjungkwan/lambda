@@ -76,8 +76,7 @@ public class UserView {
                     break;
                 case "touch":
                     System.out.println("테이블생성");
-
-                    System.out.println("회원테이블 생성 성공");
+                    System.out.println(controller.createUsers());
                     break;
                 case "rm":
                     System.out.println("테이블삭제");

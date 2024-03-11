@@ -3,6 +3,7 @@ package com.bitcamp.api.user;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import com.bitcamp.api.enums.Messenger;
 
 public interface UserService {
     String addUsers();
@@ -17,4 +18,6 @@ public interface UserService {
     String test();
 
     List<?> findUsers() throws SQLException;
+
+    Messenger createUsers() throws SQLException;
 }
