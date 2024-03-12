@@ -75,6 +75,6 @@ public class UserRepository {
                 "        \"                       weight VARCHAR(20)\n" +
                 "        \"";
         pstmt = conn.prepareStatement(sql);
-        return (pstmt.executeUpdate() == 0) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (pstmt.executeUpdate() >= 0) ? Messenger.SUCCESS: Messenger.FAIL;
     }
 }
