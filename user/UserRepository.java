@@ -64,15 +64,15 @@ public class UserRepository {
     }
 
     public Messenger createUsers() throws SQLException {
-        String sql ="CREATE TABLE IF NOT EXISTS members (\\n\" +\n" +
-                "        \"                       id INT AUTO_INCREMENT PRIMARY KEY,\\n\" +\n" +
-                "        \"                       member_name VARCHAR(20) NOT NULL,\\n\" +\n" +
-                "        \"                       password VARCHAR(20) NOT NULL,\\n\" +\n" +
-                "        \"                       name VARCHAR(20),\\n\" +\n" +
-                "        \"                       phone_number VARCHAR(20),\\n\" +\n" +
-                "        \"                       job VARCHAR(20),\\n\" +\n" +
-                "        \"                       height VARCHAR(20),\\n\" +\n" +
-                "        \"                       weight VARCHAR(20)\\n\" +\n" +
+        String sql ="CREATE TABLE IF NOT EXISTS members (\n" +
+                "        \"                       id INT AUTO_INCREMENT PRIMARY KEY,\n" +
+                "        \"                       member_name VARCHAR(20) NOT NULL,\n" +
+                "        \"                       password VARCHAR(20) NOT NULL,\n" +
+                "        \"                       name VARCHAR(20),\n" +
+                "        \"                       phone_number VARCHAR(20),\n" +
+                "        \"                       job VARCHAR(20),\n" +
+                "        \"                       height VARCHAR(20),\n" +
+                "        \"                       weight VARCHAR(20)\n" +
                 "        \"";
         pstmt = conn.prepareStatement(sql);
         return (pstmt.executeUpdate() == 0) ? Messenger.SUCCESS: Messenger.FAIL;
