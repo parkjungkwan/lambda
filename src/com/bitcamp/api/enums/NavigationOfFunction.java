@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public enum NavigationOfFunction {
     Exit("x", i -> "x"),
@@ -71,7 +72,12 @@ public enum NavigationOfFunction {
         String selectedMenu = sc.next();
         System.out.println("선택한 메뉴 : "+selectedMenu);
 
-        return selectedMenu;
+        return Stream.of(values())
+                .filter(i->i.name.equals(selectedMenu))
+                .findAny()
+                .orElseGet(()->Exit)
+                .function.apply(sc)
+                ;
 
     }
 }

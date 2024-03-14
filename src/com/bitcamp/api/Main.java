@@ -21,11 +21,11 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         Scanner sc = new Scanner(System.in);
-        NavigationOfConsumer.select(sc);
+        // NavigationOfConsumer.select(sc);
         // while ();
-        boolean booleanFlag = NavigationOfPredicate.select(sc);
+        //boolean booleanFlag = NavigationOfPredicate.select(sc);
         //while (booleanFlag);
-        String stringFlag = NavigationOfSupplier.select(sc);
+        //String stringFlag = NavigationOfSupplier.select(sc);
         //while (stringFlag.equals("x"));
         String stringFlag2 = NavigationOfFunction.select(sc);
         while (!stringFlag2.equals("x"));
