@@ -1,11 +1,12 @@
 package com.bitcamp.api.product;
 
-public class Product {
-    public String systemOut(){
+public class Item {
+    public String systemOut() {
 
         return "Hello";
     }
-    public int add(int a, int b){
+
+    public int add(int a, int b) {
 
         return a + b;
     }
