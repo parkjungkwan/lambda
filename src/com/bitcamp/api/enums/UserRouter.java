@@ -11,43 +11,43 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public enum UserRouter {
-    Join("1",(i)->{
+    Join("1",scanner->{
         System.out.println("회원가입");
-        UserController.getInstance().save(i);
+        UserController.getInstance().save(scanner);
         return true;}),
-    login("2",(i)->{
+    login("2",scanner->{
         System.out.println("로그인");
-        UserController.getInstance().login(i);
+        UserController.getInstance().login(scanner);
     return true;}),
-    IdSearch("3",(i)->{
+    IdSearch("3",scanner->{
         System.out.println("ID검색");
-        UserController.getInstance().findById(i);
+        UserController.getInstance().findById(scanner);
         return true;}),
-    PasswordChange("4",(i)->{
+    PasswordChange("4",scanner->{
         System.out.println("비번변경");
-        UserController.getInstance().updatePassword(i);
+        UserController.getInstance().updatePassword(scanner);
         return true;}),
-    Withdraw("5",(i)->{
+    Withdraw("5",scanner->{
         System.out.println("탈퇴");
-        UserController.getInstance().delete(i);
+        UserController.getInstance().delete(scanner);
         return true;}),
-    MemberList("ls",(i)->{
+    MemberList("ls",scanner->{
         System.out.println("회원목록");
         UserController.getInstance().findAll();
         return true;}),
-    NameSearch("7",(i)->{
+    NameSearch("7",scanner->{
         System.out.println("이름검색");
-        UserController.getInstance().findById(i);
+        UserController.getInstance().findById(scanner);
         return true;}),
-    JobSearch("8",(i)->{
+    JobSearch("8",scanner->{
         System.out.println("직업검색");
-        UserController.getInstance().findUsersByJob(i);
+        UserController.getInstance().findUsersByJob(scanner);
         return true;}),
-    MemberCount("9",(i)->{
+    MemberCount("9",scanner->{
         System.out.println("회원수");
         UserController.getInstance().count();
         return true;}),
-    CreateTable("touch",(i)->{
+    CreateTable("touch",scanner->{
         System.out.println("테이블생성");
         try {
             UserController.getInstance().createUsers();
@@ -55,10 +55,10 @@ public enum UserRouter {
             throw new RuntimeException(e);
         }
         return true;}),
-    dereateTable("rm",(i)->{
+    dereateTable("rm",scanner->{
         System.out.println("테이블삭제");
         return true;}),
-    exit("0",(i)->{
+    exit("0",scanner->{
         System.out.println("종료");
         return false;})
     ;
