@@ -9,10 +9,16 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class UserController {
+    private static UserController instance = new UserController();
 
-    UserServiceImpl service;
 
-    public UserController() {
+    public static UserController getInstance() {
+        return instance;
+    }
+
+    private UserServiceImpl service;
+
+    UserController() {
         this.service = UserServiceImpl.getInstance();
     }
 

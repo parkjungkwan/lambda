@@ -1,5 +1,7 @@
 package com.bitcamp.api.user;
 
+import com.bitcamp.api.enums.UserRouter;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -7,9 +9,13 @@ import java.util.Scanner;
 
 public class UserView {
     public static void main(Scanner scanner) throws SQLException {
-        UserController controller = new UserController();
-        String msg = controller.addUsers();
-        System.out.println(" addUsers 결과 : "+msg);
+        // String res = execute(scanner);
+        while (UserRouter.execute(scanner));
+    }
+
+    /*private static String execute(Scanner scanner) throws SQLException {
+        String msg;
+        Scanner scan = scanner;
         while(true){
             System.out.println("[사용자메뉴] 0-종료\n " +
                     "1-회원가입\n " +
@@ -26,15 +32,16 @@ public class UserView {
                     "");
             switch (scanner.next()){
                 case "0":
-                    System.out.println("종료");return;
+                    System.out.println("종료");
+                    return "";
                 case "1":
                     System.out.println("1-회원가입");
-                    msg = controller.save(scanner);
+                    msg = UserController.getInstance().save(scanner);
                     System.out.println("회원가입 결과 : "+msg);
                     break;
                 case "2":
                     System.out.println("2-로그인");
-                    msg = controller.login(scanner);
+                    msg = UserController.getInstance().login(scanner);
                     System.out.println("로그인 결과 : "+msg);
                     break;
                 case "3":
@@ -45,38 +52,38 @@ public class UserView {
                     break;
                 case "4":
                     System.out.println("4-비번변경");
-                    System.out.println(controller.updatePassword(scanner));
+                    System.out.println(UserController.getInstance().updatePassword(scanner));
                     break;
                 case "5":
                     System.out.println("5-탈퇴");
-                    System.out.println(controller.delete(scanner));
+                    System.out.println(UserController.getInstance().delete(scanner));
                     break;
                 case "ls":
                     System.out.println("회원목록");
-                    List<?> users = controller.findUsers();
+                    List<?> users = UserController.getInstance().findUsers();
                    //users.forEach(i -> System.out.println(i));
 
                     break;
                 case "7":
                     System.out.println("7-이름검색");
-                    controller.findUsersByName(scanner).forEach((i)->{
+                    UserController.getInstance().findUsersByName(scanner).forEach((i)->{
                         System.out.println(i);
                     });
                     break;
                 case "8":
                     System.out.println("8-직업검색");
-                    controller.findUsersByJob(scanner).forEach((i)->{
+                    UserController.getInstance().findUsersByJob(scanner).forEach((i)->{
                         System.out.println(i);
                     });
                     break;
                 case "9":
                     System.out.println("9-회원수");
-                    String numberOfUsers = controller.count();
+                    String numberOfUsers = UserController.getInstance().count();
                     System.out.println("회원수 "+numberOfUsers);
                     break;
                 case "touch":
                     System.out.println("테이블생성");
-                    System.out.println(controller.createUsers());
+                    System.out.println(UserController.getInstance().createUsers());
                     break;
                 case "rm":
                     System.out.println("테이블삭제");
@@ -87,7 +94,6 @@ public class UserView {
 
             }
 
-        }
-
+        }*/
     }
-}
+
